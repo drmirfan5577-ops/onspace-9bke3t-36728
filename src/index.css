@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 10%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 60% 96%;
+    --secondary-foreground: 20 14% 10%;
+    --muted: 40 30% 96%;
+    --muted-foreground: 25 5% 45%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 30% 88%;
+    --input: 40 30% 88%;
+    --ring: 38 92% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-white text-foreground;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Arabic text */
+.arabic-text {
+  font-family: "Scheherazade New", "Amiri", "Traditional Arabic", serif;
+  direction: rtl;
+  text-align: center;
+}
+
+.urdu-text {
+  font-family: "Noto Nastaliq Urdu", serif;
+  direction: rtl;
+  line-height: 2.2;
+}
+
+/* Golden glow effect */
+.gold-glow {
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.3);
+}
+
+.gold-glow-intense {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.8), 0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.4);
+}
+
+/* Milky white card */
+.milky-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #fef9ec; }
+::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 4px; }
+
+/* Background themes */
+.bg-theme-white { background: linear-gradient(135deg, #ffffff 0%, #fefdf8 50%, #fdf9ec 100%); }
+.bg-theme-paradise { background: linear-gradient(135deg, #d4edda 0%, #b8dfc5 30%, #a8d5b5 60%, #c8e6d4 100%); }
+.bg-theme-ocean { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 30%, #93c5fd 60%, #c3dafe 100%); }
+.bg-theme-sunset { background: linear-gradient(135deg, #fde8cc 0%, #fcd5b0 30%, #fbbf8a 60%, #fde8cc 100%); }
+.bg-theme-galaxy { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 30%, #ddd6fe 60%, #ede9fe 100%); }
+.bg-theme-rose { background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 30%, #f9a8d4 60%, #fce7f3 100%); }
+.bg-theme-mint { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 30%, #6ee7b7 60%, #d1fae5 100%); }
+.bg-theme-golden { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 30%, #fcd34d 60%, #fef3c7 100%); }
+.bg-theme-pearl { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 30%, #e2e8f0 60%, #f8fafc 100%); }
+.bg-theme-lavender { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 30%, #c4b5fd 60%, #ede9fe 100%); }
+
+/* Animated background blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+/* Shimmer text */
+.shimmer-text {
+  background: linear-gradient(90deg, #b45309, #f59e0b, #d97706, #f59e0b, #b45309);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Player bar */
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 -4px 30px rgba(245, 158, 11, 0.15);
+}
+
+/* Ayah highlight */
+.ayah-active {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(180, 83, 9, 0.05));
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 3px;
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+  transition: width 0.1s linear;
+  border-radius: 2px;
+}
+
+/* Sidebar */
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Toast */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-80px);
+  z-index: 500;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+.toast-notification.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Number badge */
+.surah-number {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-radius: 12px;
+  min-width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+}
