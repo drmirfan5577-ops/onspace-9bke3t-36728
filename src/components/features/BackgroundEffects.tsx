@@ -22,51 +22,18 @@ export default function BackgroundEffects({ themeId }: BackgroundEffectsProps) {
 
   const [c1, c2] = blobColors[themeId] || blobColors.white;
 
+  // Static radial gradients only: large blurred/animated layers and SVG noise
+  // filters forced continuous full-screen repaints and froze the display on phones.
   return (
-    <div className={`fixed inset-0 -z-10 overflow-hidden ${theme.cssClass}`}>
-      {/* Animated blobs */}
-      <div
-        className="blob"
-        style={{
-          width: 500,
-          height: 500,
-          background: `radial-gradient(circle, ${c1}, transparent)`,
-          top: "-10%",
-          right: "-10%",
-          animationDelay: "0s",
-        }}
-      />
-      <div
-        className="blob"
-        style={{
-          width: 400,
-          height: 400,
-          background: `radial-gradient(circle, ${c2}, transparent)`,
-          bottom: "-10%",
-          left: "-5%",
-          animationDelay: "-4s",
-        }}
-      />
-      <div
-        className="blob"
-        style={{
-          width: 300,
-          height: 300,
-          background: `radial-gradient(circle, ${c1}88, transparent)`,
-          top: "40%",
-          left: "30%",
-          animationDelay: "-8s",
-        }}
-      />
-      {/* Subtle grain texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "128px",
-        }}
-      />
-    </div>
+    <div
+      className={`fixed inset-0 -z-10 overflow-hidden pointer-events-none ${theme.cssClass}`}
+      style={{
+        backgroundImage: [
+          `radial-gradient(circle at 90% 0%, ${c1}40, transparent 45%)`,
+          `radial-gradient(circle at 5% 100%, ${c2}40, transparent 40%)`,
+          `radial-gradient(circle at 40% 50%, ${c1}26, transparent 35%)`,
+        ].join(", "),
+      }}
+    />
   );
 }

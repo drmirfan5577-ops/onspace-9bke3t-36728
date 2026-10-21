@@ -46,13 +46,13 @@ export default function SettingsPanel({ open, onClose, settings, onUpdate, onRes
     <>
       {/* Overlay */}
       {open && (
-        <div className="fixed inset-0 bg-black/30 z-[150] backdrop-blur-sm" onClick={onClose} />
+        <div className="fixed inset-0 bg-black/30 z-[150]" onClick={onClose} />
       )}
 
       {/* Panel */}
       <div
         className={`sidebar-panel right-0 border-l border-amber-100 z-[200] transition-transform duration-300 ${
-          open ? "translate-x-0" : "translate-x-full"
+          open ? "translate-x-0" : "panel-closed translate-x-full"
         }`}
         style={{ right: 0 }}
         dir="rtl"
